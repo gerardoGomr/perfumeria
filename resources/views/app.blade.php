@@ -16,7 +16,7 @@
     @yield('css')
 </head>
 
-<body class="theme-red">
+<body class="theme-teal">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            <p>Please wait...</p>
+            <p>Por favor, espere un momento ...</p>
         </div>
     </div>
     <!-- #END# Page Loader -->
@@ -42,7 +42,7 @@
         <div class="search-icon">
             <i class="material-icons">search</i>
         </div>
-        <input type="text" placeholder="START TYPING...">
+        <input type="text" name="textoABuscar" placeholder="INGRESE LO QUE DESEE BUSCAR ...">
         <div class="close-search">
             <i class="material-icons">close</i>
         </div>
@@ -69,6 +69,7 @@
 
     <script src="{{ asset('js/base-scripts.js') }}"></script>
     <script src="{{ asset('js/admin.js') }}"></script>
+    <script src="{{ asset('js/all.js') }}"></script>
     @yield('js')
 
 </body>

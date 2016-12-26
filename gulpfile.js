@@ -31,6 +31,9 @@ var publicFontDirectory  = 'public/fonts',
 elixir((mix) => {
     mix.sass('style.scss')
 		.webpack('admin.js')
+        .scripts([
+            'demo.js'
+        ])
        	.scripts([
        		'jquery/jquery.min.js',
        		'bootstrap/js/bootstrap.min.js',
@@ -45,17 +48,16 @@ elixir((mix) => {
        		'materialize-css/js/materialize.min.js',
        		'node-waves/waves.js',
        		'raphael/raphael.min.js',
-       		'morrisjs/morris.min.js'
+       		'morrisjs/morris.min.js',
        	], 'public/js/base-scripts.js', 'resources/assets/plugins')
        	.styles([
        		'bootstrap/css/bootstrap.min.css',
-            'materialize-css/css/materialize.min.css',
        		'node-waves/waves.min.css',
        		'animate-css/animate.min.css',
-       		'ckeditor/content.css',
-       		'font-awesome/css/font-awesome.min.css',
+       		'morrisjs/morris.min.css',
+            'ckeditor/content.css',
+            'font-awesome/css/font-awesome.min.css',
             'material-design-iconic-font/css/material-design-iconic-font.min.css',
-       		'morrisjs/morris.min.css'
    		], 'public/css/base-styles.css', 'resources/assets/plugins');
 
 	for (var directory in directories) {
