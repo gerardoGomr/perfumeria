@@ -1,11 +1,15 @@
 <?php
-namespace Tentaciones\Dominio\Productos;
+namespace Tentaciones\Dominio\Perfumes;
 
+use DateTime;
+use Tentaciones\Dominio\Diseniadores\Diseniador;
 use Tentaciones\Dominio\Listas\IColeccion;
+use Tentaciones\Dominio\Productos\Fotografia;
+use Tentaciones\Dominio\Productos\ProductoTentaciones;
 
 /**
  * Class Perfume
- * @package Tentaciones\Dominio\Productos
+ * @package Tentaciones\Dominio\Perfumes
  * @author  Gerardo Adrián Gómez Ruiz
  * @version 2.0
  */
@@ -45,7 +49,7 @@ class Perfume extends ProductoTentaciones
 		$this->acordes         = $acordes;
 		$this->notas           = $notas;
 
-		parent::__construct($diseniador, $anioLanzamiento, $genero);
+		parent::__construct($nombre, $fechaAlta, $diseniador, $anioLanzamiento, $genero);
 	}
 
 	/**

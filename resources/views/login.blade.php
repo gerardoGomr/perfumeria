@@ -24,7 +24,8 @@
         </div>
         <div class="card">
             <div class="body">
-                <form id="sign_in">
+                <form id="sign_in" method="post">
+                    {!! csrf_field() !!}
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>

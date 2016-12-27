@@ -1,6 +1,7 @@
 <?php
 namespace Tentaciones\Dominio\Productos;
 
+use DateTime;
 use Tentaciones\Dominio\Diseniadores\Diseniador;
 
 /**
@@ -22,7 +23,7 @@ class ProductoTentaciones extends Producto
 	protected $anioLanzamiento;
 
 	/**
-	 * @var int
+	 * @var string
 	 */
 	protected $genero;
 
@@ -32,7 +33,7 @@ class ProductoTentaciones extends Producto
 	 * @param DateTime $fechaAlta
 	 * @param Diseniador $diseniador
 	 * @param int $anioLanzamiento
-	 * @param int $genero
+	 * @param string $genero
 	 * @param string|null $descripcion
 	 * @param Fotografia|null $imagen
 	 */
@@ -62,7 +63,7 @@ class ProductoTentaciones extends Producto
 	}
 
 	/**
-	 * @return int
+	 * @return string
 	 */
 	public function getGenero()
 	{

@@ -11,10 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::group(['middleware' => ['usuarioAutenticado']], function () {
+    Route::get('/', function () {
+        return view('index');
+    });
 });
 
+// ruta para mostrar vista de login
 Route::get('login', function () {
     return view('login');
 });
+
+// ruta para procesar login
+Route::post('login', 'Login\LoginController@login');
+
+// ruta para procesar logout
+Route::get('logout', 'Login\LoginController@logout');
