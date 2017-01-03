@@ -12,9 +12,16 @@
 */
 
 Route::group(['middleware' => ['usuarioAutenticado']], function () {
+    // ruta para mostrar pantalla principal
     Route::get('/', function () {
         return view('index');
     });
+
+    // ruta para mostrar vista de listado de productos
+    Route::get('productos', 'Productos\ProductosController@mostrarProductos');
+
+    // ruta para mostrar vista de captura de nuevo producto
+    Route::get('productos/nuevo', 'Productos\ProductosController@mostrarCapturaNuevoProducto');
 });
 
 // ruta para mostrar vista de login

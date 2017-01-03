@@ -32,7 +32,8 @@ elixir((mix) => {
     mix.sass('style.scss')
 		.webpack('admin.js')
         .scripts([
-            'demo.js'
+            'demo.js',
+			'pages/ui/tooltips-popovers.js',
         ])
        	.scripts([
        		'jquery/jquery.min.js',
@@ -46,6 +47,7 @@ elixir((mix) => {
        		'jquery-validation/additional-methods.js',
        		'jquery-validation/localization/messages_es.js',
        		'materialize-css/js/materialize.min.js',
+			'multi-select/js/jquery.multi-select.js',
        		'node-waves/waves.js',
        		'raphael/raphael.min.js',
        		'morrisjs/morris.min.js',
@@ -54,6 +56,8 @@ elixir((mix) => {
        		'bootstrap/css/bootstrap.min.css',
        		'node-waves/waves.min.css',
        		'animate-css/animate.min.css',
+			'bootstrap-select/css/bootstrap-select.css',
+			'multi-select/css/multi-select.css',
        		'morrisjs/morris.min.css',
             'ckeditor/content.css',
             'font-awesome/css/font-awesome.min.css',

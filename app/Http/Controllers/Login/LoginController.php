@@ -38,7 +38,7 @@ class LoginController extends Controller
         $username = $request->get('username');
         $password = $request->get('password');
 
-        $usuario = new Usuario($username);
+        $usuario = new Usuario($username, 'Gerardo', 'Gómez', 'Ruiz');
         if ($username === 'admin' && $password === 'admin') {
             $request->session()->put('usuario', $usuario);
 

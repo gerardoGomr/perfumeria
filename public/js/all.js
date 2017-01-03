@@ -101,4 +101,13 @@ function loadTracking() {
     ga('send', 'pageview');
 }
 //========================================================================================================
+$(function () {
+    //Tooltip
+    $('[data-toggle="tooltip"]').tooltip({
+        container: 'body'
+    });
+
+    //Popover
+    $('[data-toggle="popover"]').popover();
+})
 //# sourceMappingURL=all.js.map

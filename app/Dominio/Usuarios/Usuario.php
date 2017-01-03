@@ -44,11 +44,14 @@ class Usuario extends Persona
 	/**
 	 * Constructor Usuario
 	 * @param string $username
+	 * @param string $nombre
+	 * @param string $paterno
+	 * @param $materno
 	 */
-	public function __construct($username = '')
+	public function __construct($username = '', $nombre, $paterno, $materno)
 	{
 		$this->username = $username;
-		parent::__construct();
+		parent::__construct($nombre, $paterno, $materno);
 	}
 
     /**
