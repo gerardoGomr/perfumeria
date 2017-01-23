@@ -31,6 +31,7 @@ return [
                 'Diseniadores' => 'Perfumeria\Dominio\Diseniadores',
                 'Personas'     => 'Perfumeria\Dominio\Personas',
                 'Perfumes'     => 'Perfumeria\Dominio\Perfumes',
+                'Inventario'   => 'Perfumeria\Dominio\Inventario',
             ],
             'paths'         => [
                 base_path('app'),
@@ -79,6 +80,7 @@ return [
             |--------------------------------------------------------------------------
             */
             'mapping_types' => [
+                'bit' => 'boolean'
                 //'enum' => 'string'
             ]
         ]

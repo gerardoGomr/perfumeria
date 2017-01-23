@@ -1,0 +1,29 @@
+Perfumeria\Dominio\Inventario\ProductoInventario:
+  type: entity
+  table: productos_inventario
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    codigo:
+      type: string
+    presentacion:
+      type: float
+  manyToOne:
+    producto:
+      targetEntity: Perfumeria\Dominio\Productos\ProductoCasaPerfume
+      joinColumn:
+        name: producto_id
+        referencedColumnName: id
+    categoria:
+      targetEntity: CategoriaProducto
+      joinColumn:
+        name: categoria_producto_id
+        referencedColumnName: id
+    unidadMedida:
+      targetEntity: UnidadMedida
+      joinColumn:
+        name: unidad_medida_id
+        referencedColumnName: id

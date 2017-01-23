@@ -24,7 +24,7 @@ class ProductoCasaPerfume extends Producto
 	protected $anioLanzamiento;
 
 	/**
-	 * @var string
+	 * @var int
 	 */
 	protected $genero;
 
@@ -62,6 +62,7 @@ class ProductoCasaPerfume extends Producto
 		$this->genero          = $genero;
 		$this->acordes  	   = $acordes;
 		$this->notas		   = $notas;
+		$this->familiaOlfativa = $familiaOlfativa;
 
 		parent::__construct($nombre, $fechaAlta, $descripcion, $diseniador, $imagen);
 	}
@@ -83,7 +84,7 @@ class ProductoCasaPerfume extends Producto
 	}
 
 	/**
-	 * @return string
+	 * @return int
 	 */
 	public function getGenero()
 	{

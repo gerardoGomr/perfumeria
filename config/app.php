@@ -183,7 +183,9 @@ return [
         Perfumeria\Providers\FamiliasOlfativasRepositorioServiceProvider::class,
         Perfumeria\Providers\NotasRepositorioServiceProvider::class,
         Perfumeria\Providers\AcordesRepositorioServiceProvider::class,
-        Perfumeria\Providers\ProductosRepositorioServiceProvider::class
+        Perfumeria\Providers\ProductosRepositorioServiceProvider::class,
+        Perfumeria\Providers\CategoriasProductosRepositorioServiceProvider::class,
+        Perfumeria\Providers\UnidadesMedidaRepositorioServiceProvider::class
     ],
 
     /*

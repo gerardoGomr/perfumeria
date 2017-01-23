@@ -9,9 +9,9 @@ namespace Perfumeria\Dominio\Productos;
  */
 class Genero
 {
-    const HOMBRES = 'H';
-    const MUJERES = 'M';
-    const UNISEX  = 'U';
-    const NINOS   = 'H';
-    const NINAS   = 'NI';
+    const HOMBRES = 1;
+    const MUJERES = 2;
+    const UNISEX  = 3;
+    const NINOS   = 4;
+    const NINAS   = 5;
 }

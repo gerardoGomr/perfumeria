@@ -52,6 +52,7 @@ class ProductosController extends Controller
      * @param FamiliasOlfativasRepositorio $familiasOlfativasRepositorio
      * @param AcordesRepositorio $acordesRepositorio
      * @param NotasRepositorio $notasRepositorio
+     * @param ProductosRepositorio $productosRepositorio
      */
     public function __construct(DiseniadoresRepositorio $diseniadoresRepositorio, FamiliasOlfativasRepositorio $familiasOlfativasRepositorio, AcordesRepositorio $acordesRepositorio, NotasRepositorio $notasRepositorio, ProductosRepositorio $productosRepositorio)
     {

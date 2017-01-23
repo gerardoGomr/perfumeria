@@ -62,3 +62,26 @@ $(document).ready(function () {
         }
     });
 });
+
+// recargar combo de producto después de agregar uno nuevo
+function recargarComboProductos() {
+    $.ajax({
+        url:        $('#producto').data('url'),
+        type:       'post',
+        dataType:   'json',
+        data:       {
+            _token: $('#formInventario').find('input[name="_token"]').val()
+        }
+
+    }).done(function (respuesta) {
+        console.log(respuesta.estatus);
+        $('#producto').html(respuesta.html);
+        $('#producto').selectpicker({
+            size: 4
+        });
+
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        console.log(textStatus + ': ' + errorThrown);
+        swal('Error', 'Ocurrió un error al recargar el combo de productos. Intente de nuevo.', 'warning');
+    });
+}

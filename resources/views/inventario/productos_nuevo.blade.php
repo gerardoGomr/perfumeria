@@ -168,6 +168,8 @@ use Perfumeria\Dominio\Productos\Genero;
         <div class="row clearfix">
             <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
                 <button class="btn btn-primary waves-effect" id="guardarProducto" type="button"><i class="fa fa-save"></i> Guardar producto</button>
+                <button class="btn btn-danger waves-effect" id="cancelarGuardarProducto" type="button"><i class="fa fa-times"></i> Cancelar y regresar</button>
+                &nbsp;
                 <span id="loading" class="hide"><i class="fa fa-spinner fa-spin fa-2x"></i></span>
             </div>
         </div>

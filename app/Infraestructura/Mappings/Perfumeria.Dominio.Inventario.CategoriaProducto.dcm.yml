@@ -1,0 +1,12 @@
+Perfumeria\Dominio\Inventario\CategoriaProducto:
+  type: entity
+  table: categorias_productos
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    categoria:
+      type: string
+      length: 80

@@ -30,9 +30,12 @@
                             <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <select name="producto" id="producto" class="form-control selectpicker required" data-live-search="true">
+                                        <select name="producto" id="producto" class="form-control selectpicker required" data-live-search="true" data-url="{{ url('inventario/productos/recargar') }}">
                                             <option value="">Seleccione</option>
                                             <option value="-1">Otro producto</option>
+                                            @foreach($productos as $producto)
+                                                <option value="{{ $producto->getId() }}">{{ $producto->getNombre() }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -49,9 +52,9 @@
                                         <select name="categoria" id="categoria" class="form-control selectpicker required" data-live-search="true">
                                             <option value="">Seleccione</option>
                                             <option value="-1">Otra categoría</option>
-                                            <option value="1">Perfume</option>
-                                            <option value="2">Set</option>
-                                            <option value="3">Body Lotion</option>
+                                            @foreach($categorias as $categoria)
+                                                <option value="{{ $categoria->getId() }}">{{ $categoria->getCategoria() }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -65,7 +68,7 @@
                             <div class="col-lg-2 col-md-5 col-sm-6 col-xs-7">
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" id="presentacion" name="presentacion" class="numerosEnteros form-control" maxlength="4">
+                                        <input type="text" id="presentacion" name="presentacion" class="numerosEnteros form-control" maxlength="4" placeholder="Ej. 100, 4, 3.4">
                                     </div>
                                 </div>
                             </div>
@@ -75,8 +78,9 @@
                                         <select name="unidadMedida" id="unidadMedida" class="required form-control selectpicker">
                                             <option value="">Seleccione</option>
                                             <option value="-1">Otra unidad de medida</option>
-                                            <option value="1">Mililitros</option>
-                                            <option value="2">Piezas</option>
+                                            @foreach($unidadesMedida as $unidadMedida)
+                                                <option value="{{ $unidadMedida->getId() }}">{{ $unidadMedida->getUnidad() }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -99,5 +103,5 @@
 
 @section('js')
     <script src="{{ asset('js/inventario/inventario_nuevo.js') }}"></script>
-    <script src="{{ asset('js/productos/productos_nuevo.js') }}"></script>
+    <script src="{{ asset('js/inventario/productos_nuevo.js') }}"></script>
 @stop

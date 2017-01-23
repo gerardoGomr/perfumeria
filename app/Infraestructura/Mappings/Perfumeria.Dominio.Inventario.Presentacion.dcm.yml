@@ -1,0 +1,11 @@
+Perfumeria\Dominio\Inventario\Presentacion:
+  type: embeddable
+  fields:
+    presentacion:
+      type: float
+  manyToOne:
+    unidadMedida:
+      targetEntity: UnidadMedida
+      joinColumn:
+        name: unidad_medida_id
+        referencedColumnName: id

@@ -1,0 +1,12 @@
+Perfumeria\Dominio\Inventario\UnidadMedida:
+  type: entity
+  table: unidades_medida
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    unidad:
+      type: string
+      length: 80

@@ -7,8 +7,7 @@ Perfumeria\Dominio\Productos\ProductoCasaPerfume:
       type: smallint
       column: anio_lanzamiento
     genero:
-      type: string
-      length: 2
+      type: smallint
   manyToOne:
     familiaOlfativa:
       targetEntity: Perfumeria\Dominio\Perfumes\FamiliaOlfativa
