@@ -1,6 +1,6 @@
 <?php
 
-namespace Tentaciones\Http;
+namespace Perfumeria\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -24,11 +24,11 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \Tentaciones\Http\Middleware\EncryptCookies::class,
+            \Perfumeria\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Tentaciones\Http\Middleware\VerifyCsrfToken::class,
+            \Perfumeria\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -50,8 +50,8 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \Tentaciones\Http\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \Perfumeria\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'usuarioAutenticado' => \Tentaciones\Http\Middleware\UsuarioAutenticado::class
+        'usuarioAutenticado' => \Perfumeria\Http\Middleware\UsuarioAutenticado::class
     ];
 }

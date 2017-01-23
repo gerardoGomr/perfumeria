@@ -1,10 +1,10 @@
 <?php
-namespace Tentaciones\Http\Controllers\Login;
+namespace Perfumeria\Http\Controllers\Login;
 
-use Tentaciones\Dominio\Usuarios\Repositorios\UsuariosRepositorio;
+use Perfumeria\Dominio\Usuarios\Repositorios\UsuariosRepositorio;
 use Illuminate\Http\Request;
-use Tentaciones\Dominio\Usuarios\Usuario;
-use Tentaciones\Http\Controllers\Controller;
+use Perfumeria\Dominio\Usuarios\Usuario;
+use Perfumeria\Http\Controllers\Controller;
 
 /**
  * Class LoginController

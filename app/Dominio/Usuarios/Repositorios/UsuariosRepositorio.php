@@ -1,12 +1,12 @@
 <?php
-namespace Tentaciones\Dominio\Usuarios\Repositorios;
+namespace Perfumeria\Dominio\Usuarios\Repositorios;
 
-use Tentaciones\Dominio\Repositorios\Repositorio;
-use Tentaciones\Dominio\Usuarios\Usuario;
+use Perfumeria\Dominio\Repositorios\Repositorio;
+use Perfumeria\Dominio\Usuarios\Usuario;
 
 /**
  * Interface UsuariosRepositorio
- * @package Tentaciones\Dominio\Usuarios\Repositorios
+ * @package Perfumeria\Dominio\Usuarios\Repositorios
  * @author Gerardo Adrián Gómez Ruiz
  * @version 1.0
  */

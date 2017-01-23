@@ -1,17 +1,17 @@
 <?php
-namespace Tentaciones\Infraestructura\Usuarios;
+namespace Perfumeria\Infraestructura\Usuarios;
 
-use Tentaciones\Aplicacion\Logger;
-use Tentaciones\Dominio\Usuarios\Repositorios\UsuariosRepositorio;
+use Perfumeria\Aplicacion\Logger;
+use Perfumeria\Dominio\Usuarios\Repositorios\UsuariosRepositorio;
 use Doctrine\ORM\EntityManager;
 use Monolog\Logger as Log;
 use Monolog\Handler\StreamHandler;
 use PDOException;
-use Tentaciones\Dominio\Usuarios\Usuario;
+use Perfumeria\Dominio\Usuarios\Usuario;
 
 /**
  * Class DoctrineUsuariosRepositorio
- * @package Tentaciones\Infraestructura\Usuarios
+ * @package Perfumeria\Infraestructura\Usuarios
  * @author Gerardo Adrián Gómez Ruiz
  * @version 1.0
  */

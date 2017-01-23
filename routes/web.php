@@ -13,15 +13,19 @@
 
 Route::group(['middleware' => ['usuarioAutenticado']], function () {
     // ruta para mostrar pantalla principal
-    Route::get('/', function () {
-        return view('index');
-    });
+    Route::get('/', 'Inventarios\InventariosController@index');
 
     // ruta para mostrar vista de listado de productos
-    Route::get('productos', 'Productos\ProductosController@mostrarProductos');
+    Route::get('productos', 'Productos\ProductosController@index');
 
     // ruta para mostrar vista de captura de nuevo producto
-    Route::get('productos/nuevo', 'Productos\ProductosController@mostrarCapturaNuevoProducto');
+    Route::get('productos/nuevo', 'Productos\ProductosController@crear');
+
+    // ruta para crear nuevo producto
+    Route::post('productos/nuevo', 'Productos\ProductosController@guardar');
+
+    // ruta para mostrar vista de captura de inventario
+    Route::get('inventario/nuevo', 'Inventarios\InventariosController@crear');
 });
 
 // ruta para mostrar vista de login

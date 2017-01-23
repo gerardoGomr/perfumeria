@@ -1,7 +1,7 @@
 <?php
-namespace Tentaciones\Aplicacion;
+namespace Perfumeria\Aplicacion;
 
-use Tentaciones\Dominio\Listas\IColeccion;
+use Perfumeria\Dominio\Listas\IColeccion;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**

@@ -1,11 +1,11 @@
 <?php
-namespace Tentaciones\Dominio\Productos;
+namespace Perfumeria\Dominio\Productos;
 
 use Exception;
 
 /**
  * Class Fotografia
- * @package Tentaciones\Dominio\Productos
+ * @package Perfumeria\Dominio\Productos
  * @author Gerardo Adrián Gómez Ruiz
  * @version 1.0
  */

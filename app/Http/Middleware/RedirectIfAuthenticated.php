@@ -1,6 +1,6 @@
 <?php
 
-namespace Tentaciones\Http\Middleware;
+namespace Perfumeria\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

@@ -26,10 +26,15 @@ return [
             'meta'          => env('DOCTRINE_METADATA', 'annotations'),
             'connection'    => env('DB_CONNECTION', 'mysql'),
             'namespaces'    => [
-                'App'
+                'Usuarios'     => 'Perfumeria\Dominio\Usuarios',
+                'Productos'    => 'Perfumeria\Dominio\Productos',
+                'Diseniadores' => 'Perfumeria\Dominio\Diseniadores',
+                'Personas'     => 'Perfumeria\Dominio\Personas',
+                'Perfumes'     => 'Perfumeria\Dominio\Perfumes',
             ],
             'paths'         => [
-                base_path('app')
+                base_path('app'),
+                base_path('app/Infraestructura/Mappings')
             ],
             'repository'    => Doctrine\ORM\EntityRepository::class,
             'proxies'       => [

@@ -173,12 +173,17 @@ return [
         /*
          * Application Service Providers...
          */
-        Tentaciones\Providers\AppServiceProvider::class,
-        Tentaciones\Providers\AuthServiceProvider::class,
-        // Tentaciones\Providers\BroadcastServiceProvider::class,
-        Tentaciones\Providers\EventServiceProvider::class,
-        Tentaciones\Providers\RouteServiceProvider::class,
-        Tentaciones\Providers\UsuariosRepositorioServiceProvider::class,
+        Perfumeria\Providers\AppServiceProvider::class,
+        Perfumeria\Providers\AuthServiceProvider::class,
+        // Perfumeria\Providers\BroadcastServiceProvider::class,
+        Perfumeria\Providers\EventServiceProvider::class,
+        Perfumeria\Providers\RouteServiceProvider::class,
+        Perfumeria\Providers\UsuariosRepositorioServiceProvider::class,
+        Perfumeria\Providers\DiseniadoresRepositorioServiceProvider::class,
+        Perfumeria\Providers\FamiliasOlfativasRepositorioServiceProvider::class,
+        Perfumeria\Providers\NotasRepositorioServiceProvider::class,
+        Perfumeria\Providers\AcordesRepositorioServiceProvider::class,
+        Perfumeria\Providers\ProductosRepositorioServiceProvider::class
     ],
 
     /*

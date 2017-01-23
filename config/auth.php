@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Tentaciones\User::class,
+            'model' => Perfumeria\User::class,
         ],
 
         // 'users' => [

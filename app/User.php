@@ -1,6 +1,6 @@
 <?php
 
-namespace Tentaciones;
+namespace Perfumeria;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;

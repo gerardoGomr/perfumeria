@@ -1,9 +1,9 @@
 <?php
 
-namespace Tentaciones\Http\Controllers\Auth;
+namespace Perfumeria\Http\Controllers\Auth;
 
-use Tentaciones\User;
-use Tentaciones\Http\Controllers\Controller;
+use Perfumeria\User;
+use Perfumeria\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 

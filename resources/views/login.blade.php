@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Tentaciones de París</title>
+    <title>La Casa del Perfume</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
@@ -19,13 +19,13 @@
 <body class="login-page">
     <div class="login-box">
         <div class="logo">
-            <a href="#">Tentaciones de <b>París</b></a>
+            <a href="#">La casa del <b>Perfume</b></a>
             <small>Aromas, Deseos y Recuerdos</small>
         </div>
         <div class="card">
             <div class="body">
                 <form id="sign_in" method="post">
-                    {!! csrf_field() !!}
+                    {{ csrf_field() }}
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>

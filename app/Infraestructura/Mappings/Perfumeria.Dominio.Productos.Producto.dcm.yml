@@ -1,0 +1,22 @@
+Perfumeria\Dominio\Productos\Producto:
+  type: mappedSuperclass
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    nombre:
+      type: string
+      length: 80
+    descripcion:
+      type: text
+    fechaAlta:
+      type: date
+      column: fecha_alta
+  manyToOne:
+    diseniador:
+      targetEntity: Perfumeria\Dominio\Diseniadores\Diseniador
+      joinColumn:
+        name: diseniador_id
+        referencedColumnName: id

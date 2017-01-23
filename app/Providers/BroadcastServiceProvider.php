@@ -1,6 +1,6 @@
 <?php
 
-namespace Tentaciones\Providers;
+namespace Perfumeria\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;

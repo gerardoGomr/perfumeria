@@ -1,0 +1,40 @@
+Perfumeria\Dominio\Productos\ProductoCasaPerfume:
+  type: entity
+  extends: Producto
+  table: productos
+  fields:
+    anioLanzamiento:
+      type: smallint
+      column: anio_lanzamiento
+    genero:
+      type: string
+      length: 2
+  manyToOne:
+    familiaOlfativa:
+      targetEntity: Perfumeria\Dominio\Perfumes\FamiliaOlfativa
+      joinColumn:
+        name: familia_olfativa_id
+        referencedColumnName: id
+  manyToMany:
+    acordes:
+      targetEntity: Perfumeria\Dominio\Perfumes\Acorde
+      joinTable:
+        name: producto_familia_olfativa
+        joinColumns:
+          producto_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          acorde_id:
+            referencedColumnName: id
+      cascade: [persist]
+    notas:
+      targetEntity: Perfumeria\Dominio\Perfumes\Nota
+      joinTable:
+        name: producto_nota
+        joinColumns:
+          producto_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          nota_id:
+            referencedColumnName: id
+      cascade: [persist]

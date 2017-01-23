@@ -1,9 +1,11 @@
 <?php
-namespace Tentaciones\Dominio\Diseniadores;
+namespace Perfumeria\Dominio\Diseniadores;
+
+use Perfumeria\Dominio\Productos\Fotografia;
 
 /**
  * Class Diseniador
- * @package Tentaciones\Dominio\Diseniadores
+ * @package Perfumeria\Dominio\Diseniadores
  * @author Gerardo Adrián Gómez Ruiz
  * @version 2.0
  */
@@ -20,25 +22,18 @@ class Diseniador
     private $nombre;
 
     /**
-     * @var string
-     */
-    private $siglas;
-
-    /**
-     * @var Imagen
+     * @var Fotografia
      */
     private $imagen;
 
     /**
      * Marca constructor.
      * @param string $nombre
-     * @param string $siglas
-     * @param Imagen|null $imagen
+     * @param Fotografia|null $imagen
      */
-    public function __construct($nombre, $siglas, Imagen $imagen = null)
+    public function __construct($nombre, Fotografia $imagen = null)
     {
         $this->nombre = $nombre;
-        $this->siglas = $siglas;
         $this->imagen = $imagen;
     }
 
@@ -59,15 +54,7 @@ class Diseniador
     }
 
     /**
-     * @return string
-     */
-    public function getSiglas()
-    {
-        return $this->siglas;
-    }
-
-    /**
-     * @return Imagen
+     * @return Fotografia
      */
     public function getImagen()
     {

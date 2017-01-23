@@ -1,6 +1,6 @@
 <?php
 
-namespace Tentaciones\Providers;
+namespace Perfumeria\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Tentaciones\Events\SomeEvent' => [
-            'Tentaciones\Listeners\EventListener',
+        'Perfumeria\Events\SomeEvent' => [
+            'Perfumeria\Listeners\EventListener',
         ],
     ];
 

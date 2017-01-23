@@ -10,11 +10,7 @@
             <div class="btn-group user-helper-dropdown">
                 <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                 <ul class="dropdown-menu pull-right">
-                    <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
-                    <li role="seperator" class="divider"></li>
-                    <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                    <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                    <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                    <li><a href="javascript:void(0);"><i class="material-icons">person</i>Mi cuenta</a></li>
                     <li role="seperator" class="divider"></li>
                     <li><a href="{{ url('logout') }}"><i class="material-icons">input</i>Salir del sistema</a></li>
                 </ul>
@@ -44,7 +40,7 @@
     <!-- Footer -->
     <div class="legal">
         <div class="copyright">
-            &copy; {{ date('Y') }} Tentaciones de <b>París</b>
+            &copy; {{ date('Y') }} La Casa del <b>Perfume</b>
         </div>
         <div class="version">
             <b>Version: </b> 1.0

@@ -1,0 +1,18 @@
+Perfumeria\Dominio\Usuarios\Usuario:
+  type: entity
+  extends: Perfumeria\Dominio\Personas\Persona
+  table: usuarios
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    username:
+      type: string
+      length: 80
+    passwd:
+      type: string
+      length: 50
+    activo:
+      type: boolean

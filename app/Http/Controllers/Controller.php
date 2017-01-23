@@ -1,6 +1,6 @@
 <?php
 
-namespace Tentaciones\Http\Controllers;
+namespace Perfumeria\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

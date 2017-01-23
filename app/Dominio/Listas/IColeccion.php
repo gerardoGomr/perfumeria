@@ -1,9 +1,9 @@
 <?php
-namespace Tentaciones\Dominio\Listas;
+namespace Perfumeria\Dominio\Listas;
 
 /**
  * Interface IColeccion
- * @package Tentaciones\Dominio\Listas
+ * @package Perfumeria\Dominio\Listas
  * @author Gerardo Adrián Gómez Ruiz
  * @version 1.0
  */

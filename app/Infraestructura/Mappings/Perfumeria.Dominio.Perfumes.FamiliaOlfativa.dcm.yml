@@ -1,0 +1,12 @@
+Perfumeria\Dominio\Perfumes\FamiliaOlfativa:
+  type: entity
+  table: familias_olfativas
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    familia:
+      type: string
+      length: 80

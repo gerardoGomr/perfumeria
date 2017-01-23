@@ -1,9 +1,9 @@
 <?php
-namespace Tentaciones\Dominio\Usuarios;
+namespace Perfumeria\Dominio\Usuarios;
 
 /**
  * Class UsuarioTipo
- * @package Tentaciones\Dominio\Usuarios
+ * @package Perfumeria\Dominio\Usuarios
  * @author  Gerardo Adrián Gómez Ruiz
  * @version 1.0
  */

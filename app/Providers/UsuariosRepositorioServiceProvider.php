@@ -1,7 +1,7 @@
 <?php
-namespace Tentaciones\Providers;
+namespace Perfumeria\Providers;
 
-use Tentaciones\Infraestructura\Usuarios\DoctrineUsuariosRepositorio;
+use Perfumeria\Infraestructura\Usuarios\DoctrineUsuariosRepositorio;
 use Illuminate\Support\ServiceProvider;
 
 class UsuariosRepositorioServiceProvider extends ServiceProvider
@@ -23,7 +23,7 @@ class UsuariosRepositorioServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('Tentaciones\Dominio\Usuarios\Repositorios\UsuariosRepositorio', function($app) {
+        $this->app->bind('Perfumeria\Dominio\Usuarios\Repositorios\UsuariosRepositorio', function($app) {
             return new DoctrineUsuariosRepositorio($app['em']);
         });
     }

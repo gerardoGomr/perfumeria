@@ -1,5 +1,5 @@
 <?php
-namespace Tentaciones\Http\Middleware;
+namespace Perfumeria\Http\Middleware;
 
 use Closure;
 

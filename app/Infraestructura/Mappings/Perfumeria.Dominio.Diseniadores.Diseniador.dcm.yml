@@ -1,0 +1,12 @@
+Perfumeria\Dominio\Diseniadores\Diseniador:
+  type: entity
+  table: diseniadores
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    nombre:
+      type: string
+      length: 80

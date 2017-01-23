@@ -1,8 +1,8 @@
 <?php
 
-namespace Tentaciones\Http\Controllers\Auth;
+namespace Perfumeria\Http\Controllers\Auth;
 
-use Tentaciones\Http\Controllers\Controller;
+use Perfumeria\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller

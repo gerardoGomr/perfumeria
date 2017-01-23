@@ -1,6 +1,6 @@
 <?php
 
-namespace Tentaciones\Http\Middleware;
+namespace Perfumeria\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 

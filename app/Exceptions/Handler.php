@@ -1,6 +1,6 @@
 <?php
 
-namespace Tentaciones\Exceptions;
+namespace Perfumeria\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;

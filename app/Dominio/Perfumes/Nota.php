@@ -1,11 +1,11 @@
 <?php
-namespace Tentaciones\Dominio\Perfumes;
+namespace Perfumeria\Dominio\Perfumes;
 
-use Tentaciones\Dominio\Productos\Fotografia;
+use Perfumeria\Dominio\Productos\Fotografia;
 
 /**
  * Class Nota
- * @package Tentaciones\Dominio\Perfumes
+ * @package Perfumeria\Dominio\Perfumes
  * @author  Gerardo Adrián Gómez Ruiz
  * @version 2.0
  */

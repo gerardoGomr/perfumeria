@@ -1,0 +1,12 @@
+Perfumeria\Dominio\Perfumes\Acorde:
+  type: entity
+  table: acordes
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    acorde:
+      type: string
+      length: 80

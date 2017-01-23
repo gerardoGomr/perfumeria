@@ -1,9 +1,9 @@
 <?php
-namespace Tentaciones\Dominio\Personas;
+namespace Perfumeria\Dominio\Personas;
 
 /**
  * Class Persona
- * @package Tentaciones\Dominio\Personas
+ * @package Perfumeria\Dominio\Personas
  * @author Gerardo Adrián Gómez Ruiz
  * @version 1.0
  */

@@ -1,12 +1,12 @@
 <?php
-namespace Tentaciones\Aplicacion;
+namespace Perfumeria\Aplicacion;
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger as MonologLogger;
 
 /**
  * Class Logger
- * @package Tentaciones\Aplicacion
+ * @package Perfumeria\Aplicacion
  * @author  Gerardo Adrián Gómez Ruiz
  * @version 1.0
  */

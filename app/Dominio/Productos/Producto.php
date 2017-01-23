@@ -1,11 +1,12 @@
 <?php
-namespace Tentaciones\Dominio\Productos;
+namespace Perfumeria\Dominio\Productos;
 
 use DateTime;
+use Perfumeria\Dominio\Diseniadores\Diseniador;
 
 /**
  * Class Producto
- * @package Tentaciones\Dominio\Productos
+ * @package Perfumeria\Dominio\Productos
  * @author  Gerardo Adrián Gómez Ruiz
  * @version 2.0
  */
@@ -32,27 +33,29 @@ class Producto
 	protected $fechaAlta;
 
 	/**
-	 * @var Marca
-	 */
-	protected $marca;
-
-	/**
 	 * @var Fotografia
 	 */
 	protected $imagen;
+
+	/**
+	 * @var Diseniador
+	 */
+	protected $diseniador;
 
 	/**
 	 * Producto constructor.
 	 * @param string $nombre
 	 * @param DateTime $fechaAlta
 	 * @param string|null $descripcion
+	 * @param Diseniador $diseniador
 	 * @param Fotografia|null $imagen
 	 */
-	public function __construct($nombre, DateTime $fechaAlta, $descripcion = null, Fotografia $imagen = null)
+	public function __construct($nombre, DateTime $fechaAlta, $descripcion = null, Diseniador $diseniador, Fotografia $imagen = null)
 	{
 		$this->nombre      = $nombre;
 		$this->fechaAlta   = $fechaAlta;
 		$this->descripcion = $descripcion;
+		$this->diseniador  = $diseniador;
 		$this->imagen      = $imagen;
 	}
 
@@ -89,18 +92,18 @@ class Producto
 	}
 
 	/**
-	 * @return Marca
-	 */
-	public function getMarca()
-	{
-		return $this->marca;
-	}
-
-	/**
 	 * @return Imagen
 	 */
 	public function getImagen()
 	{
 		return $this->imagen;
+	}
+
+	/**
+	 * @return Diseniador
+	 */
+	public function getDiseniador()
+	{
+		return $this->diseniador;
 	}
 }
