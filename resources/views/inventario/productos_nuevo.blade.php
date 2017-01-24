@@ -140,9 +140,9 @@ use Perfumeria\Dominio\Productos\Genero;
                                 <option value="{{ $nota->getId() }}">{{ $nota->getNombre() }}</option>
                             @endforeach
                         </select>
-                                        <span class="input-group-btn">
-                                            <button class="btn bg-blue-grey" id="agregarNota" type="button"><i class="fa fa-plus"></i></button>
-                                        </span>
+                        <span class="input-group-btn">
+                            <button class="btn bg-blue-grey" id="agregarNota" type="button"><i class="fa fa-plus"></i></button>
+                        </span>
                     </div>
                 </div>
             </div>

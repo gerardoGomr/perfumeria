@@ -1,7 +1,10 @@
 <?php
 namespace Perfumeria\Http\Controllers\Inventarios;
 
+use Illuminate\Http\Request;
 use Perfumeria\Dominio\Diseniadores\Repositorios\DiseniadoresRepositorio;
+use Perfumeria\Dominio\Inventario\ProductoInventario;
+use Perfumeria\Dominio\Inventario\Repositorios\ProductosInventarioRepositorio;
 use Perfumeria\Dominio\Inventario\Repositorios\UnidadesMedidaRepositorio;
 use Perfumeria\Dominio\Perfumes\Repositorios\AcordesRepositorio;
 use Perfumeria\Dominio\Perfumes\Repositorios\FamiliasOlfativasRepositorio;
@@ -54,6 +57,11 @@ class InventariosController extends Controller
     private $unidadesMedidaRepositorio;
 
     /**
+     * @var ProductosInventarioRepositorio
+     */
+    private $productosInventarioRepositorio;
+
+    /**
      * ProductosController constructor.
      * @param DiseniadoresRepositorio $diseniadoresRepositorio
      * @param FamiliasOlfativasRepositorio $familiasOlfativasRepositorio
@@ -62,6 +70,7 @@ class InventariosController extends Controller
      * @param ProductosRepositorio $productosRepositorio
      * @param CategoriasProductosRepositorio $categoriasProductosRepositorio
      * @param UnidadesMedidaRepositorio $unidadesMedidaRepositorio
+     * @param ProductosInventarioRepositorio $productosInventarioRepositorio
      */
     public function __construct(DiseniadoresRepositorio $diseniadoresRepositorio,
                                 FamiliasOlfativasRepositorio $familiasOlfativasRepositorio,
@@ -69,7 +78,8 @@ class InventariosController extends Controller
                                 NotasRepositorio $notasRepositorio,
                                 ProductosRepositorio $productosRepositorio,
                                 CategoriasProductosRepositorio $categoriasProductosRepositorio,
-                                UnidadesMedidaRepositorio $unidadesMedidaRepositorio)
+                                UnidadesMedidaRepositorio $unidadesMedidaRepositorio,
+                                ProductosInventarioRepositorio $productosInventarioRepositorio)
     {
         $this->diseniadoresRepositorio        = $diseniadoresRepositorio;
         $this->familiasOlfativasRepositorio   = $familiasOlfativasRepositorio;
@@ -78,6 +88,7 @@ class InventariosController extends Controller
         $this->productosRepositorio           = $productosRepositorio;
         $this->categoriasProductosRepositorio = $categoriasProductosRepositorio;
         $this->unidadesMedidaRepositorio      = $unidadesMedidaRepositorio;
+        $this->productosInventarioRepositorio = $productosInventarioRepositorio;
     }
 
     /**
@@ -86,7 +97,8 @@ class InventariosController extends Controller
      */
     public function index()
     {
-        return view('inventario.inventario');
+        $productos = $this->productosInventarioRepositorio->obtenerTodos();
+        return view('inventario.inventario', compact('productos'));
     }
 
     /**
@@ -116,6 +128,40 @@ class InventariosController extends Controller
         $productos = $this->productosRepositorio->obtenerTodos();
 
         $respuesta['html'] =  view('inventario.productos_combo', compact('productos'))->render();
+
+        return response()->json($respuesta);
+    }
+
+    /**
+     * guardar nuevo producto a inventario
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function guardar(Request $request)
+    {
+        $respuesta      = ['estatus' => 'OK'];
+        $productoId     = (int)$request->get('producto');
+        $categoriaId    = (int)$request->get('categoria');
+        $presentacion   = (double)$request->get('presentacion');
+        $unidadMedidaId = (int)$request->get('unidadMedida');
+
+        $producto     = $this->productosRepositorio->obtenerPorId($productoId);
+        $categoria    = $this->categoriasProductosRepositorio->obtenerPorId($categoriaId);
+        $unidadMedida = $this->unidadesMedidaRepositorio->obtenerPorId($unidadMedidaId);
+
+        $productoInventario = new ProductoInventario($producto, $categoria, $presentacion, $unidadMedida);
+
+        if (!$this->productosInventarioRepositorio->persistir($productoInventario)) {
+            $respuesta['estatus'] = 'fail';
+            $respuesta['mensaje'] = 'Ocurrió un error al guardar cambios en inventarios en la base de datos';
+        }
+
+        $productoInventario->generarCodigo();
+
+        if (!$this->productosInventarioRepositorio->persistir($productoInventario)) {
+            $respuesta['estatus'] = 'fail';
+            $respuesta['mensaje'] = 'Ocurrió un error al guardar cambios en inventarios en la base de datos';
+        }
 
         return response()->json($respuesta);
     }

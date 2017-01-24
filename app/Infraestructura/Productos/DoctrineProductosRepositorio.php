@@ -7,6 +7,7 @@ use Monolog\Handler\StreamHandler;
 use PDOException;
 use Perfumeria\Aplicacion\Logger;
 use Perfumeria\Dominio\Productos\Producto;
+use Perfumeria\Dominio\Productos\ProductoCasaPerfume;
 use Perfumeria\Dominio\Productos\Repositorios\ProductosRepositorio;
 
 /**
@@ -59,11 +60,35 @@ class DoctrineProductosRepositorio implements ProductosRepositorio
 
     /**
      * @param int $id
-     * @return mixed
+     * @return ProductoCasaPerfume
      */
     public function obtenerPorId($id)
     {
         // TODO: Implement obtenerPorId() method.
+        try {
+            $query = $this->entityManager->createQuery('SELECT p, d, f FROM Productos:ProductoCasaPerfume p JOIN p.diseniador d JOIN p.familiaOlfativa f WHERE p.id = :id')
+                ->setParameter('id', $id);
+            $productos = $query->getResult();
+
+            if (count($productos) === 0) {
+                return null;
+            }
+
+            $this->entityManager->createQuery('SELECT p, n FROM Productos:ProductoCasaPerfume p JOIN p.notas n WHERE p.id = :id')
+                ->setParameter('id', $id)
+                ->getResult();
+
+            $this->entityManager->createQuery('SELECT p, a FROM Productos:ProductoCasaPerfume p JOIN p.acordes a WHERE p.id = :id')
+                ->setParameter('id', $id)
+                ->getResult();
+
+            return $productos[0];
+
+        } catch (PDOException $e) {
+            $pdoLogger = new Logger(new Log('pdo_exception'), new StreamHandler(storage_path() . '/logs/pdo/sqlsrv_' . date('Y-m-d') . '.log', Log::ERROR));
+            $pdoLogger->log($e);
+            return null;
+        }
     }
 
     /**

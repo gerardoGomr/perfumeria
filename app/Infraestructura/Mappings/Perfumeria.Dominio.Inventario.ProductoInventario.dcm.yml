@@ -11,6 +11,8 @@ Perfumeria\Dominio\Inventario\ProductoInventario:
       type: string
     presentacion:
       type: float
+    cantidad:
+      type: integer
   manyToOne:
     producto:
       targetEntity: Perfumeria\Dominio\Productos\ProductoCasaPerfume

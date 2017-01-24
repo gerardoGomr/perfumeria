@@ -92,6 +92,39 @@ class ProductoCasaPerfume extends Producto
 	}
 
 	/**
+	 * representación en string del género
+	 * @return string
+	 */
+	public function genero()
+	{
+		$genero = '';
+
+		switch ($this->genero) {
+			case Genero::HOMBRES:
+				$genero = 'Hombres';
+				break;
+
+			case Genero::MUJERES:
+				$genero = 'Mujeres';
+				break;
+
+			case Genero::UNISEX:
+				$genero = 'Unisex';
+				break;
+
+			case Genero::NINOS:
+				$genero = 'Niños';
+				break;
+
+			case Genero::NINAS:
+				$genero = 'Niñas';
+				break;
+		}
+
+		return $genero;
+	}
+
+	/**
 	 * @return int
 	 */
 	public function getFamiliaOlfativa()

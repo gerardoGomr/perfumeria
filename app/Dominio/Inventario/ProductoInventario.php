@@ -42,6 +42,11 @@ class ProductoInventario
     private $codigo;
 
     /**
+     * @var int
+     */
+    private $cantidad;
+
+    /**
      * ProductoInventario constructor.
      * @param Producto $producto
      * @param CategoriaProducto $categoria
@@ -54,6 +59,7 @@ class ProductoInventario
         $this->categoria    = $categoria;
         $this->presentacion = $presentacion;
         $this->unidadMedida = $unidadMedida;
+        $this->cantidad     = 0;
     }
 
     /**
@@ -99,10 +105,45 @@ class ProductoInventario
     /**
      * @return UnidadMedida
      */
-    public function getUnidad()
+    public function getUnidadMedida()
     {
         return $this->unidadMedida;
     }
 
-    public function generarCodigo() {}
+    /**
+     * @return int
+     */
+    public function getCantidad()
+    {
+        return $this->cantidad;
+    }
+
+    /**
+     * generar el código de identificación del producto
+     */
+    public function generarCodigo()
+    {
+        $cadena = 'CP';
+        $numero = '';
+
+        $longitud     = strlen((string)$this->id);
+        $longitudBase = 5 - $longitud;
+
+        for ($i = 1; $i <= $longitudBase; $i++) {
+            $numero .= '0';
+        }
+
+        $numero .= (string)$this->id;
+
+        $this->codigo = $cadena . $numero;
+    }
+
+    /**
+     * obtener la descripción completa del inventario
+     * @return string
+     */
+    public function descripcion()
+    {
+        return $this->producto->getDiseniador()->getNombre() . ' ' . $this->producto->getNombre() . ' ' . $this->categoria->getCategoria() . ' ' . $this->presentacion . ' ' . $this->unidadMedida->getUnidad();
+    }
 }

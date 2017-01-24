@@ -6,16 +6,16 @@ use Monolog\Logger as Log;
 use Monolog\Handler\StreamHandler;
 use PDOException;
 use Perfumeria\Aplicacion\Logger;
-use Perfumeria\Dominio\Inventario\CategoriaProducto;
-use Perfumeria\Dominio\Inventario\Repositorios\CategoriasProductosRepositorio;
+use Perfumeria\Dominio\Inventario\ProductoInventario;
+use Perfumeria\Dominio\Inventario\Repositorios\ProductosInventarioRepositorio;
 
 /**
- * Class DoctrineCategoriasProductosRepositorio
- * @package Perfumeria\Infraestructura\Perfumes
+ * Class DoctrineProductosInventarioRepositorio
+ * @package Perfumeria\Infraestructura\Inventario
  * @author Gerardo Adrián Gómez Ruiz
  * @version 1.0
  */
-class DoctrineCategoriasProductosRepositorio implements CategoriasProductosRepositorio
+class DoctrineProductosInventarioRepositorio implements ProductosInventarioRepositorio
 {
     /**
      * @var EntityManager
@@ -38,11 +38,11 @@ class DoctrineCategoriasProductosRepositorio implements CategoriasProductosRepos
     {
         // TODO: Implement obtenerTodos() method.
         try {
-            $query      = $this->entityManager->createQuery('SELECT c FROM Inventario:CategoriaProducto c');
-            $categorias = $query->getResult();
+            $query     = $this->entityManager->createQuery('SELECT p, po, um FROM Inventario:ProductoInventario p JOIN p.producto po JOIN p.unidadMedida um ORDER BY p.id DESC');
+            $productos = $query->getResult();
 
-            if (count($categorias) > 0) {
-                return $categorias;
+            if (count($productos) > 0) {
+                return $productos;
             }
 
             return null;
@@ -54,29 +54,34 @@ class DoctrineCategoriasProductosRepositorio implements CategoriasProductosRepos
         }
     }
 
-    /**
-     * @param int $id
-     * @return CategoriaProducto
-     */
+
     public function obtenerPorId($id)
     {
         // TODO: Implement obtenerPorId() method.
+
+    }
+
+    /**
+     * persistir cambios en el almacenamiento
+     * @param ProductoInventario $productoInventario
+     * @return bool
+     */
+    public function persistir(ProductoInventario $productoInventario)
+    {
+        // TODO: Implement persistir() method.
         try {
-            $query   = $this->entityManager->createQuery('SELECT c FROM Inventario:CategoriaProducto c WHERE c.id = :id')
-                ->setParameter('id', $id);
-
-            $acordes = $query->getResult();
-
-            if (count($acordes) > 0) {
-                return $acordes[0];
+            if (is_null($productoInventario->getId())) {
+                $this->entityManager->persist($productoInventario);
             }
 
-            return null;
+            $this->entityManager->flush();
+
+            return true;
 
         } catch (PDOException $e) {
             $pdoLogger = new Logger(new Log('pdo_exception'), new StreamHandler(storage_path() . '/logs/pdo/sqlsrv_' . date('Y-m-d') . '.log', Log::ERROR));
             $pdoLogger->log($e);
-            return null;
+            return false;
         }
     }
 }

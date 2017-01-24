@@ -27,6 +27,9 @@ Route::group(['middleware' => ['usuarioAutenticado']], function () {
     // ruta para mostrar vista de captura de inventario
     Route::get('inventario/nuevo', 'Inventarios\InventariosController@crear');
 
+    // ruta para guardar nuevo producto a inventario
+    Route::post('inventario/nuevo', 'Inventarios\InventariosController@guardar');
+
     // ruta para recargar combo de productos
     Route::post('inventario/productos/recargar', 'Inventarios\InventariosController@recargarProductos');
 });

@@ -89,7 +89,8 @@
 
                         <div class="row clearfix">
                             <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-                                <button class="btn btn-primary waves-effect" id="guardarProductoInventario" type="button"><i class="fa fa-save"></i> Agregar producto a inventario</button>
+                                <button class="btn btn-primary waves-effect" id="guardarProductoInventario" type="button" data-url="{{ url('/') }}"><i class="fa fa-save"></i> Agregar producto a inventario</button> &nbsp;
+                                <span id="loadingInventario" class="hide text-primary"><i class="fa fa-spinner fa-spin fa-2x"></i></span>
                             </div>
                         </div>
                     </form>

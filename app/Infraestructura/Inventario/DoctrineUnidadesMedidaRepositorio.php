@@ -7,7 +7,7 @@ use Monolog\Handler\StreamHandler;
 use PDOException;
 use Perfumeria\Aplicacion\Logger;
 use Perfumeria\Dominio\Inventario\Repositorios\UnidadesMedidaRepositorio;
-use Perfumeria\Dominio\Perfumes\Acorde;
+use Perfumeria\Dominio\Inventario\UnidadMedida;
 
 /**
  * Class DoctrineUnidadesMedidaRepositorio
@@ -56,13 +56,13 @@ class DoctrineUnidadesMedidaRepositorio implements UnidadesMedidaRepositorio
 
     /**
      * @param int $id
-     * @return Acorde
+     * @return UnidadMedida
      */
     public function obtenerPorId($id)
     {
         // TODO: Implement obtenerPorId() method.
         try {
-            $query   = $this->entityManager->createQuery('SELECT a FROM Perfumes:Acorde a WHERE a.id = :id')
+            $query   = $this->entityManager->createQuery('SELECT u FROM Inventario:UnidadMedida u WHERE u.id = :id')
                 ->setParameter('id', $id);
 
             $acordes = $query->getResult();

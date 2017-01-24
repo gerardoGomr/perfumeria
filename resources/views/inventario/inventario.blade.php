@@ -13,51 +13,55 @@
                     <a href="{{ url('inventario/nuevo') }}" class="btn bg-cyan waves-effect m-r--5 pull-right"><i class="fa fa-plus"></i>Agregar producto al inventario</a>
                     <div class="clearfix"></div>
                 </div>
-                <div class="body table-responsive">
-                    <table class="table">
+                <div class="body">
+                    <?php $i = 0 ?>
+                    <table class="table table-bordered table-striped table-hover dataTable" id="tablaProductos">
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>FIRST NAME</th>
-                            <th>LAST NAME</th>
-                            <th>USERNAME</th>
+                            <th>PRODUCTO</th>
+                            <th>PARA</th>
+                            <th>CATEGORÍA</th>
+                            <th>CÓDIGO</th>
+                            <th>EXISTENCIAS</th>
+                            <th>&nbsp;</th>
                         </tr>
                         </thead>
+                        <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>PRODUCTO</th>
+                            <th>PARA</th>
+                            <th>CATEGORÍA</th>
+                            <th>CÓDIGO</th>
+                            <th>EXISTENCIAS</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        </tfoot>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Larry</td>
-                            <td>Jellybean</td>
-                            <td>@lajelly</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td>Larry</td>
-                            <td>Kikat</td>
-                            <td>@lakitkat</td>
-                        </tr>
+                        @foreach($productos as $producto)
+                            <tr>
+                                <td>{{ ++$i }}</td>
+                                <td>{{ $producto->descripcion() }}</td>
+                                <td>{{ $producto->getProducto()->genero() }}</td>
+                                <td>{{ $producto->getCategoria()->getCategoria() }}</td>
+                                <td>{{ $producto->getCodigo() }}</td>
+                                <td>{{ $producto->getCantidad() }}</td>
+                                <td>
+                                    <div class="btn-group btn-group-xs">
+                                        <a href="" class="btn waves-effect bg-amber" title="Editar producto" data-toggle="tooltip"><i class="fa fa-edit"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+@stop
+
+@section('js')
+    <script src="{{ asset('js/inventario/inventario.js') }}"></script>
 @stop

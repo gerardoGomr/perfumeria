@@ -185,7 +185,8 @@ return [
         Perfumeria\Providers\AcordesRepositorioServiceProvider::class,
         Perfumeria\Providers\ProductosRepositorioServiceProvider::class,
         Perfumeria\Providers\CategoriasProductosRepositorioServiceProvider::class,
-        Perfumeria\Providers\UnidadesMedidaRepositorioServiceProvider::class
+        Perfumeria\Providers\UnidadesMedidaRepositorioServiceProvider::class,
+        Perfumeria\Providers\ProductosInventarioRepositorioServiceProvider::class,
     ],
 
     /*

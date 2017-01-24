@@ -27,24 +27,44 @@ $(document).ready(function () {
 
     // guardar
     $('#guardarProductoInventario').on('click', function () {
-        if ($formInventario.valid()) {
+        var url = $(this).data('url');
 
+        if ($formInventario.valid()) {
             $.ajax({
                 url:        $formInventario.attr('action'),
                 type:       'post',
                 dataType:   'json',
                 data:       $formInventario.serialize(),
                 beforeSend: function () {
-                    $('#loading').modal('show');
+                    $('#guardarProductoInventario').attr('disabled', true);
+                    $('#loadingInventario').removeClass('hide');
                 }
 
             }).done(function (respuesta) {
                 console.log(respuesta.estatus);
-                $('#loading').modal('hide');
+                $('#guardarProductoInventario').attr('disabled', false);
+                $('#loadingInventario').addClass('hide');
+
+                if (respuesta.estatus === 'OK') {
+                    swal({
+                        title:            '¡Éxito!',
+                        text:             'Producto agregado al inventario con éxito.',
+                        type:             'success',
+                        showCancelButton: false
+                    }, function () {
+                        window.location.href = url;
+                    });
+                }
+
+                if (respuesta.estatus === 'fail') {
+                    swal('Error', 'Ocurrió un error al agregar el producto al inventario. Intente de nuevo.', 'warning');
+                }
 
             }).fail(function (jqXHR, textStatus, errorThrown) {
                 console.log(textStatus + ': ' + errorThrown);
-                $('#loading').modal('hide');
+                $('#guardarProductoInventario').attr('disabled', false);
+                $('#loadingInventario').addClass('hide');
+                swal('Error', 'Ocurrió un error al agregar el producto al inventario. Intente de nuevo.', 'warning');
             });
         }
     });
